@@ -1,3 +1,5 @@
+# Gerard Naughton G00209309 train.py EmergingTechProject
+
 # Imports required for program
 from __future__ import print_function
 import keras

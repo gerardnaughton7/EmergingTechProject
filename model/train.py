@@ -15,7 +15,7 @@ batch_size = 128
 # Number of binary class matrices needed. Our outputs in binary. We have 10 different outputs 0-9
 num_classes = 10
 # Number of iterations the model does over the x and y data
-epochs = 12
+epochs = 20
 
 # input image dimensions (28pixels each)
 img_rows, img_cols = 28, 28
@@ -105,4 +105,4 @@ print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
 # Save Model in order to be reused again.
-model.save("mnist_model.h5")
+model.save("mnist_model2.h5")
