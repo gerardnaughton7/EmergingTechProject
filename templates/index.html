@@ -1,35 +1,59 @@
 <!-- Main html file which will house all static code. eg. Navbar etc... -->
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>index</title>
-        <!-- Libraries needed -->
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-        <!-- Our Own Custom Style Sheet -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!--Bootstrap styling-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
 
-  </head>
-  <body>
-    <div id="head">
-        <h1>Draw Number</h1>
-    </div>
-    <div class="centered">
-        <canvas id="canvas" width="280" height="280"></canvas>
-    </div>
-    
-    <div class="centered">
-        <input type="button" class="myButton" value="Predict" style="">
-        <input type="button" id="clearButton" value="Clear" style="">
-    </div>
-    
-    <div class="centered">
-        <img id="img" src="{{url_for('static',filename='train-1-0.png')}}" alt="Number 1">
-        <h1 id="result"></h1>
-    </div>
-    
-    
+    <!-- Our Own Custom Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Libraries needed -->
+    <!-- jQuery library -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <!--Bootstrap library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div classs=" ll">
+    <div class="container-fluid">
+        <div classs="row">
+        <div class="draw-area float-left col-5">
+            <div class="centered ">
+                <canvas id="canvas" width="280" height="280"></canvas>
+            </div>
+            <h1 class="instructions">Draw on the space above</h1>
+            <div class="centered">
+                <input type="button" class="myButton btn btn-outline-primary" value="Predict">
+                <input type="button" id="clearButton" class="btn btn-outline-secondary" value="Clear">
+
+                 <div class="centered">
+                    <h1 id="result"></h1>
+                 </div>
+                </div>
+            </div>
+            <div id="profile" class="profile col-5 float-right">
+                <img src="../static/img/me.jpg">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Number Recognition using Tensor Flow</h4>
+                    <br/>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                    <br/>
+                    <a href="githug.com/whatever">Github Repo</a>
+                </div>
+            </div>
+        </div>
+        <div class="main-title">       
+            <h1>Number Recognition</h1>
+        </div>
+        </div>
+
     <script src="{{url_for('static',filename='jquery-3.2.0.min.js')}}"></script>
     <script src="{{url_for('static',filename='index.js')}}"></script>
     <script type="text/javascript">   
@@ -49,6 +73,6 @@
         });
     </script>
 
-  </body>
+</body>
 
 </html>
