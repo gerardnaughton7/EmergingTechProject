@@ -1,30 +1,28 @@
+# Gerard Naughton G00209309 app.py EmergingTechProject
+# Code adapted from https://github.com/sleepokay/mnist-flask-app
+# Comments were derived/learned and quoted from keras website: https://keras.io/
+# Imports required for program
 from flask import Flask, render_template, request
 from scipy.misc import imsave , imread, imresize
 import numpy as np
-# you will have to install all these for tensor flow enviroment
 import keras.models
 import re
 import base64
 
-import sys 
-import os
-sys.path.append(os.path.abspath("./model"))
-
-
 # create a instance of a flask app
 app = Flask(__name__)
-
 
 # renders index.html
 @app.route('/')
 def index():
     return render_template("index.html")
 
+# Predict function
 @app.route('/predict/', methods=['GET','POST'])
 def predict():
 
-# get data from drawing canvas and save as image
-    parseImage(request.get_data())
+    # get data from drawing canvas and save as image
+    parseImg(request.get_data())
 
     # read parsed image back in 8-bit, black and white mode (L)
     x = imread('output.png', mode='L')
@@ -44,8 +42,9 @@ def predict():
     response = np.array_str(np.argmax(out, axis=1))
     print(response)
     return response
-    
-def parseImage(imgData):
+
+# Parsing Image function
+def parseImg(imgData):
     # parse canvas bytes and save as output.png
     imgstr = re.search(b'base64,(.*)', imgData).group(1)
     with open('output.png','wb') as output:

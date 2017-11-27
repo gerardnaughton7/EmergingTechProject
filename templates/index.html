@@ -1,4 +1,4 @@
-<!-- Main html file which will house all static code. eg. Navbar etc... -->
+<!--Gerard Naughton G00209309 Main html file which will display my canvas, predict and clear buttons and info about my project-->
 <!DOCTYPE html>
 <html>
 
@@ -20,58 +20,63 @@
 </head>
 
 <body>
-  <div classs=" ll">
-    <div class="container-fluid">
-        <div classs="row">
-        <div class="draw-area float-left col-5">
-            <div class="centered ">
-                <canvas id="canvas" width="280" height="280"></canvas>
-            </div>
-            <h1 class="instructions">Draw on the space above</h1>
-            <div class="centered">
-                <input type="button" class="myButton btn btn-outline-primary" value="Predict">
-                <input type="button" id="clearButton" class="btn btn-outline-secondary" value="Clear">
+    <div classs=" ll">
+        <div class="container-fluid">
+            <div classs="row">
+                <!--Canvas and results floated to left side of page-->
+                <div class="draw-area float-left col-5">
+                    <div class="centered ">
+                        <canvas id="canvas" width="280" height="280"></canvas>
+                    </div>
+                    <h1 class="instructions">Draw on the space above</h1>
+                    <div class="centered">
+                        <input type="button" class="myButton btn btn-outline-primary" value="Predict">
+                        <input type="button" id="clearButton" class="btn btn-outline-secondary" value="Clear">
 
-                 <div class="centered">
-                    <h1 id="result"></h1>
-                 </div>
+                        <div class="centered">
+                            <h1 id="result"></h1>
+                        </div>
+                    </div>
+                </div>
+                <!--Profile and info on project floated to right of page-->
+                <div id="profile" class="profile col-5 float-right">
+                    <img src="../static/img/me.jpg">
+                    <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Number Recognition using Tensor Flow</h4>
+                        <br/>
+                        <p>Hello my name is Gerard Naughton and im a 4th year computer software development student at GMIT.
+                            In my WebApp I have trained a neural network with Tensorflow and Keras to recognise hand written
+                            numbers from 0-9. The model i have created has 99.12% accuracy over the MNIST Data sets.</p>
+                        <p class="mb-0">If you would like to learn more about my project you can visit the github link below.</p>
+                        <br/>
+                        <a href="https://github.com/gerardnaughton7/EmergingTechProject">Github Repo</a>
+                    </div>
                 </div>
             </div>
-            <div id="profile" class="profile col-5 float-right">
-                <img src="../static/img/me.jpg">
-                <div class="alert alert-success" role="alert">
-                    <h4 class="alert-heading">Number Recognition using Tensor Flow</h4>
-                    <br/>
-                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                    <br/>
-                    <a href="githug.com/whatever">Github Repo</a>
-                </div>
+            <div class="main-title">
+                <h1>Number Recognition</h1>
             </div>
         </div>
-        <div class="main-title">       
-            <h1>Number Recognition</h1>
-        </div>
-        </div>
 
-    <script src="{{url_for('static',filename='jquery-3.2.0.min.js')}}"></script>
-    <script src="{{url_for('static',filename='index.js')}}"></script>
-    <script type="text/javascript">   
-        $(".myButton").click(function(){
-        $('#result').text('  Predicting...');
-        var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
-        var canvasObj = document.getElementById("canvas");
-        var img = canvasObj.toDataURL('image/png');
-        $.ajax({
-            type: "POST",
-            url: $SCRIPT_ROOT + "/predict/",
-            data: img,
-            success: function(data){
-            $('#result').text('Predicted Output: ' + data);
-            }
-        });
-        });
-    </script>
+        <!--Ajax call Adapted from https://github.com/sleepokay/mnist-flask-app-->
+        <script src="{{url_for('static',filename='jquery-3.2.0.min.js')}}"></script>
+	    <script src="{{url_for('static',filename='index.js')}}"></script>
+	    <script type="text/javascript">   
+	   		$(".myButton").click(function(){
+	   			$('#result').text('  Predicting...');
+	   			var $SCRIPT_ROOT = {{request.script_root|tojson|safe}};
+	   			var canvasObj = document.getElementById("canvas");
+	   			var img = canvasObj.toDataURL('image/png');
+	   			$.ajax({
+	   				type: "POST",
+	   				url: $SCRIPT_ROOT + "/predict/",
+	   				data: img,
+	   				success: function(data){
+	   					$('#result').text('Predicted Output: ' + data);
+	   				}
+	   			});
+	   		});
+	   </script>
 
 </body>
 

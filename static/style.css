@@ -1,5 +1,6 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
 
+/*Gerard Naughton G00209309 style.css*/
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,300');
 
 html { 
 	height: 100%;
@@ -53,10 +54,6 @@ h1 {
 .centered {
 	position: relative;
 	text-align: center;
-}
-
-.draw-area{
-
 }
 
 .instructions{

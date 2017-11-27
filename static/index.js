@@ -1,3 +1,5 @@
+// Gerard Naughton G00209309 index.js EmergingTechProject
+// Code adapted from https://github.com/sleepokay/mnist-flask-app
 (function() {
 	var canvas = document.querySelector("#canvas");
 	var context = canvas.getContext("2d");
@@ -51,10 +53,3 @@
 		});
 	}
 }());
-
-// this prevents the site from idling
-// since it takes the flask app about 20 seconds to start up again
-var http = require("http");
-setInterval(function() {
-    http.get("http://mnist-flask-app.herokuapp.com");
-}, 300000); // every 5 minutes (300000)

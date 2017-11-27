@@ -3,7 +3,7 @@
 # Comments were derived/learned and quoted from keras website: https://keras.io/
 # Imports required for program
 from __future__ import print_function
-import keras
+import keras as k
 from keras.datasets import mnist
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten
@@ -15,7 +15,7 @@ batch_size = 128
 # Number of binary class matrices needed. Our outputs in binary. We have 10 different outputs 0-9
 num_classes = 10
 # Number of iterations the model does over the x and y data
-epochs = 20
+epochs = 12
 
 # input image dimensions (28pixels each)
 img_rows, img_cols = 28, 28
