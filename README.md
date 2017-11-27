@@ -16,10 +16,10 @@ In this project you will create a web application in Python to recognise digits 
 Who I am and why i created the project
 
 ## Project Design <a name = "design"></a>
-![alt text](https://pbs.twimg.com/profile_images/799385008427274240/SecICcL4.jpg)
 
 [Top](#contents)
-## Technology <a name = "tech"></a>
+## Technology <a name = "tech"></a>    
+<img src="static/img/flask-python.png" width="250" length="250>
 
 flask, tensorflow, keras
 
