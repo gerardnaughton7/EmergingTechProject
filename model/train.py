@@ -104,4 +104,4 @@ print('Test loss:', score[0])
 print('Test accuracy:', score[1])
 
 # Save Model in order to be reused again.
-model.save("mnist_model2.h5")
+model.save("mnist_model.h5")
