@@ -69,7 +69,7 @@ I use bootstrap and css to style my application.
 
 [Top](#contents)
 
-## Development <a name = "Dev"></a>
+## Development <a name = "dev"></a>
 
 ### Here is a step by step development overview of my project.
 
